@@ -34,7 +34,7 @@ module.exports.routes = {
 
   '/': {
     view: 'homepage'
-  }
+  },
 
   /***************************************************************************
   *                                                                          *
@@ -45,5 +45,27 @@ module.exports.routes = {
   * for configuration options and examples.                                  *
   *                                                                          *
   ***************************************************************************/
-
+  //
+  // Route /login will call AuthController.login to display the login form. This form will submit to POST /login which will call AuthController.process to validate and check password and then login the user.
+  // Route /logout will call AuthController.logout which will logout the the user.
+   'GET /login': {
+        controller: 'AuthController',
+        action: 'login'
+    },
+    'POST /login': {
+        controller: 'AuthController',
+        action: 'process'
+    },
+    'GET /logout': {
+        controller: 'AuthController',
+        action: 'logout'
+    },
+    'GET /google': {
+      controller: 'AuthController',
+      action: 'googleAuth'
+    },
+    'GET /googleCallback': {
+      controller: 'AuthController',
+      action: 'googleCallback'
+    }
 };
