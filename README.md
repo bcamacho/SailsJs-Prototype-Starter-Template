@@ -3,7 +3,7 @@
 a [Sails](http://sailsjs.org) starter application
 
 To take advantage of this starter template fork and merge feature branches to help build your app.
-For instance [authentication :)](https://github.com/bcamacho/SailsJs-Prototype-Starter-Template/edit/Authentication)
+For instance [authentication :)](https://github.com/bcamacho/SailsJs-Prototype-Starter-Template/tree/Authentication)
 
 
 ## Architecture
