@@ -48,4 +48,16 @@ module.exports.policies = {
 		// before letting any users feed our rabbits
 		// feed : ['isNiceToAnimals', 'hasRabbitFood']
 	// }
+
+  // The code below tells every action of every controller to run 'authenticated' policy before execution.
+  // This is then overridden by following code stating UserController.create and AuthController's all actions to be executed without any policy.
+
+  '*': "authenticated",
+    UserController: {
+        "create": true,
+    },
+    AuthController: {
+        '*': true,
+    }
+
 };
