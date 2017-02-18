@@ -1,0 +1,17 @@
+<!-- The login form will submit to POST /login which will call AuthController.process as defined in the routes above.
+AuthController.process authenticates using passport.authenticate() with 'local' strategy and a custom callback. If the authentication was successful it calls res.logIn() provided by Passport.js, which sends back the 'login successful' message (this is not necessary in this case). -->
+
+
+<form action="/login" method="post">
+    <div>
+        <label>Email:</label>
+        <input type="text" name="email"/>
+    </div>
+    <div>
+        <label>Password:</label>
+        <input type="password" name="password"/>
+    </div>
+    <div>
+        <input type="submit" value="Log In"/>
+    </div>
+</form>

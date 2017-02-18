@@ -9,13 +9,21 @@ setTimeout(function sunrise () {
   document.getElementsByClassName('header')[0].style.backgroundColor = '#118798';
 }, 0);
 </script>
-
+<script type="text/javascript">
+  console.log("Loading data from views/homepage.ejs"); // => {id:9, name: 'Timmy Mendez'}
+</script>
 <div class="default-page">
   <div class="header">
     <h1 id="main-title" class="container"><%= __('A brand new app.') %></h1>
     <h3 class="container">You're looking at: <code><%= view.pathFromApp + '.' +view.ext %></code></h3>
   </div>
   <div class="main container clearfix">
+    <script type="text/javascript" src="/js/dependencies/sails.io.js">
+    console.log("Attempting to make socket connection");
+    io.socket.get('user/33', function (resData) {
+      console.log(resData); // => {id:9, name: 'Timmy Mendez'}
+    });
+    </script>
     <!-- <h1>Getting started</h1>
     <p>Don't worry, we've got your back.</p> -->
     <ul class="getting-started">
@@ -46,7 +54,6 @@ setTimeout(function sunrise () {
             Dive in.
           </h3>
           <p>Blueprints are just the beginning.  You'll probably also want to learn how to customize your app's <a href="http://sailsjs.org/#!/documentation/concepts/Routes">routes</a>, set up <a href="http://sailsjs.org/#!/documentation/concepts/Policies">security policies</a>, configure your <a href="http://sailsjs.org/#!/documentation/reference/sails.config/sails.config.connections.html">data sources</a>, and build custom <a target="_blank" href="http://sailsjs.org/#!/documentation/concepts/Controllers?q=actions">controller actions</a>. For more help getting started, check out the links on this page.</p>
-
         </div>
       </li>
     </ul>
