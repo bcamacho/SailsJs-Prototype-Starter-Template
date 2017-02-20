@@ -58,3 +58,43 @@ config/routes.js
 For Authentication we created AuthController.js. We will handle several methods to assist authentication with external providers, in our case it's Google. First we need to make a request to authenticate followed by a callbackURL to process user.
 
 api/controllers/AuthController.js
+
+## Register new user
+You will need the following payload information:
+- user email address
+- user password
+- user role (admin, user, manager, ect...)
+
+``` 
+curl -X "POST" "http://[IP_ADDRESS]:1337/user"   \
+-H "Content-Type: application/json"      \
+-d $'{ 
+  "email": "[EMAIL_ADDRESS]",
+  "role": "[ROLE]",
+  "password": "[PASSWORD]"
+}'
+ ```
+## Login
+You will need the following payload information:
+- user email address
+- user password
+```
+curl -X "POST" "http://[IP_ADDRESS]:1337/login" \
+     -H "Content-Type: application/json" \
+     -d $'{
+  "email": "[EMAIL_ADDRESS]",
+  "password": "[PASSWORD]"
+}'
+```
+
+## Get user details
+You will need the following payload information:
+- User ID
+- Cookie
+```
+curl -X "GET" "http://[IP_ADDRESS]:1337/user/1" \
+     -H "Cookie: sails.sid=s%3AR2oQ...."
+```
+
+## Authenticate with Google
+get http://[IP_ADDRESS]/google
